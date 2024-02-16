@@ -1,11 +1,12 @@
-import React, {useState, dispatch, useEffect}  from 'react'
+import React, {useState, dispatch, useEffect, useContext}  from 'react'
 import {connect} from 'react-redux'
 import {FetchUserDetails} from '../action/loginAction'
+import {TokenContext} from '../parentComponent/TokenProvider'
 
 const Login = (props)=>{
-
+    const data = useContext(TokenContext);
     useEffect(()=>{
-        console.log(props.token);
+      
     },[]);
 
     const [uname, setUsername] = useState('');
@@ -14,10 +15,11 @@ const Login = (props)=>{
     const setTokenEvent = (e)=>{
         e.preventDefault();
         console.log("form submitted")
-        props.setToken({
-            username: uname,
-            password: pwd
-        });
+        const temp ={
+            tempevent : (tempToken)=>{data.setToken(tempToken)}
+        }
+        props.setToken(temp);
+        // console.log("data",data)
     }
     const userInputHandler = (e)=>{
         setUsername(e.target.value);

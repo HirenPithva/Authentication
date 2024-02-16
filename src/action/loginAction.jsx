@@ -17,8 +17,9 @@ export const Get_Token = () =>{
 
 export const FetchUserDetails = (data) =>{
     return  (dispatch)=>{
-        console.warn("FetchUserDetails",data )
-            dispatch(Set_token(data))
+        
+        data.tempevent("Action")
+            dispatch(Set_token())
           console.warn("FetchUserDetails",data )
 
     }

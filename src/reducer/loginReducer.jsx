@@ -2,17 +2,13 @@ import {Settoken, GetToken} from '../action/loginAction'
 
 
 const initialState = {
-    token: {
-        username : "",
-        password : ""
-    }
+    token: ""
 }
 
  const loginReducer = (state = initialState, action) =>{
     
     switch(action.type){
         case Settoken:
-                console.log("reducerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",action.data);
                 const obj = {
                     ...state,
                     token : action.data
